@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sepii.View"
         mc:Ignorable="d"
-        Title="LoginAdmin" Height="706" Width="1080">
+        Title="LoginAdmin" Height="706" Width="1080" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="95*"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Sepii.View
 {
@@ -40,8 +42,22 @@ namespace Sepii.View
         }
 
 
-
-
+        
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+                
+                
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+                
+        }
         public void addToDatabase()
         {
             try
@@ -50,11 +66,11 @@ namespace Sepii.View
                 string Query = "INSERT INTO `member` (`noKTP`, `nama`, `jenis kelamin`, `kewarganegaraan`, `tempat tanggal lahir`, `agama`, `nomor telepon`, `email`, `alamat`, `kecamatan`, `RT/RW`) VALUES ('" + txtBoxNoKtp.Text + "', '" + txtBoxNama.Text + "', '" + gender + "', '" + txtBoxKewarganegaraan.Text + "', '" + date + "', '" + txtBoxAgama.Text + "', '" + txtBoxNoTelepon.Text + "', '" + txtBoxEmail.Text + "', '" + txtBoxAlamat.Text + "', '" + txtBoxKecamatan.Text + "', '" + txtBoxRtRw.Text + "')";
                 MySqlCommand createCommand = new MySqlCommand(Query, connection);
                 createCommand.ExecuteNonQuery();
-                MessageBox.Show("Saved");
+                System.Windows.MessageBox.Show("Saved");
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                System.Windows.MessageBox.Show(e.ToString());
             }
           
 

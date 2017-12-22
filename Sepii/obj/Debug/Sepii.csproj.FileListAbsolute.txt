@@ -52,3 +52,4 @@ C:\Users\Ali Rahmat\Documents\C#\backup\Sepii\Sepii\obj\Debug\Sepii.exe
 C:\Users\Ali Rahmat\Documents\C#\backup\Sepii\Sepii\obj\Debug\Sepii.pdb
 C:\Users\Ali Rahmat\Documents\C#\backup\Sepii\Sepii\obj\Debug\Activity\LoginAdmin.g.cs
 C:\Users\Ali Rahmat\Documents\C#\backup\Sepii\Sepii\obj\Debug\Activity\LoginAdmin.baml
+C:\Users\Ali Rahmat\Documents\C#\backup\Sepii\Sepii\obj\Debug\App.baml

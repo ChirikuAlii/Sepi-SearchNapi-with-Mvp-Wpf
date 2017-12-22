@@ -15,6 +15,8 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Sepii.Model;
 using Sepii.Presenter.LoginAdmin;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Sepii.View
 {
@@ -29,9 +31,9 @@ namespace Sepii.View
         String username;
         String password;
         ILoginAdminPresenter presenter;
-      
 
-        
+
+        ShutdownMode shutdownMode;
         
         public LoginAdmin()
         {
@@ -42,7 +44,7 @@ namespace Sepii.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ResizeMode = ResizeMode;
             WindowState = WindowState.Maximized;
-            
+           
         }
 
       
@@ -61,21 +63,36 @@ namespace Sepii.View
 
         public void setEmptyUsernameOrPassword()
         {
-            MessageBox.Show("Input username dan password!");
+            System.Windows.MessageBox.Show("Input username dan password!");
         }
 
         public void setLoginSuccess()
         {
-            MessageBox.Show("Login berhasil");
+            System.Windows.MessageBox.Show("Login berhasil");
             this.Hide();
             new PilihMenu().Show();
         }
 
         public void setLoginUsernameOrPasswordError()
         {
-            MessageBox.Show("Username dan password salah!");
+            System.Windows.MessageBox.Show("Username dan password salah!");
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+
+
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+
+        }
 
 
     }
