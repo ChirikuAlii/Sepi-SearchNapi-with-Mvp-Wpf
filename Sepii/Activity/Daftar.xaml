@@ -1,0 +1,145 @@
+﻿<Window x:Class="Sepii.View.Daftar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sepii.View"
+        mc:Ignorable="d"
+        Title="Daftar" Height="706" Width="1080">
+
+
+
+    <Grid ShowGridLines="False">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Ali Rahmat\Documents\C#\FP Pemprog\Black.jpg"/>
+
+
+        </Grid.Background>
+
+        <GroupBox Header="Data Diri" FontSize="20" Foreground="White" Grid.ColumnSpan="2" Grid.Row="1"
+                   Margin="50,10,50,10">
+
+            <Grid ShowGridLines="False">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91*"></ColumnDefinition>
+                    <ColumnDefinition Width="121*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Foreground="White" Height="35" Content="Nomor KTP" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="0"/>
+
+                <TextBox x:Name="txtBoxNoKtp" Height="35" Width="200"  Grid.Column="1" Grid.Row="0"></TextBox>
+
+                <Label Foreground="White" Height="35" Content="Nama" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="1"/>
+                <TextBox x:Name="txtBoxNama" Height="35" Width="200"  Grid.Column="1" Grid.Row="1"></TextBox>
+
+                <Label Foreground="White" Height="35" Content="Jenis Kelamin" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="2"/>
+                <Grid Grid.Column="1" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <RadioButton x:Name="rbLakilaki" Content="Laki-laki" Foreground="White" Height="35" Width="200" Grid.Row="0" Margin="30,4,0,0"></RadioButton>
+                    <RadioButton x:Name="rbPerempuan" Content="Perempuan" Foreground="White" Height="35" Width="200" Grid.Row="1" Margin="30,0,0,0"></RadioButton>
+                </Grid>
+
+
+                <Label Foreground="White" Height="35" Content="Tanggal Lahir" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="3"/>
+                <DatePicker x:Name="datePickerLahir" Height="35" Width="200" Grid.Column="1" Grid.Row="3"></DatePicker>
+
+
+                <Label Foreground="White" Height="35" Content="Agama" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="4"/>
+                <TextBox x:Name="txtBoxAgama" Height="35" Width="200"  Grid.Column="1" Grid.Row="4"></TextBox>
+
+                <Label Foreground="White" Height="35" Content="Kewarganegaraan" FontSize="18" Margin="30,0,0,0" Grid.Column="0" Grid.Row="5"/>
+                <TextBox x:Name="txtBoxKewarganegaraan" Height="35" Width="200"  Grid.Column="1" Grid.Row="5"></TextBox>
+
+
+
+
+
+            </Grid>
+
+
+
+
+        </GroupBox>
+
+        <GroupBox Header="Kontak" Foreground="White" FontSize="20" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1"
+                   Margin="50,10,50,10">
+            <Grid ShowGridLines="False" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="70*"></RowDefinition>
+                    <RowDefinition Height="70*"></RowDefinition>
+                    <RowDefinition Height="70*"></RowDefinition>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91*"></ColumnDefinition>
+                    <ColumnDefinition Width="121*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Nomor Telepon"  Height="35"  FontSize="18" Foreground="White" Grid.Column="0" Grid.Row="0" Margin="30,0,0,0"></Label>
+                <TextBox x:Name="txtBoxNoTelepon" Height="35" Grid.Column="1" Width="200" Grid.Row="0" ></TextBox>
+
+                <Label Content="Email"  Height="35" FontSize="18" Foreground="White" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0"></Label>
+                <TextBox x:Name="txtBoxEmail" Height="35" Grid.Column="1" Width="200" Grid.Row="1" ></TextBox>
+
+                <Label Content="Alamat"  Height="35" FontSize="18" Foreground="White" Grid.Column="0" Grid.Row="2" Margin="30,0,0,0"></Label>
+                <TextBox x:Name="txtBoxAlamat" Grid.Column="1" Width="200" Grid.Row="2" Margin="21,0" />
+
+                <Label Content="Kecamatan"  Height="35" FontSize="18" Foreground="White" Grid.Column="0" Grid.Row="3" Margin="30,0,0,0"></Label>
+                <TextBox x:Name="txtBoxKecamatan" Height="35" Grid.Column="1" Width="200" Grid.Row="3" ></TextBox>
+
+                <Label Content="RT/RW"  Height="35" FontSize="18" Foreground="White" Grid.Column="0" Grid.Row="4" Margin="30,0,0,0"></Label>
+                <TextBox x:Name="txtBoxRtRw" Height="25" Grid.Column="1" Width="200" Grid.Row="4" ></TextBox>
+
+            </Grid>
+
+
+        </GroupBox>
+        <Button x:Name="btnDaftar" Content="DAFTAR" FontSize="25" Foreground="White" Background="Black" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Width="100" Height="50" Click="btnDaftar_Click"></Button>
+
+
+
+
+
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+</Window>
