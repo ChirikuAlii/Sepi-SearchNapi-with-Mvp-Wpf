@@ -47,7 +47,7 @@ namespace Sepii.View
            
         }
 
-      
+
 
         private void btnMasuk_Click(object sender, RoutedEventArgs e)
         {
@@ -71,6 +71,7 @@ namespace Sepii.View
             System.Windows.MessageBox.Show("Login berhasil");
             this.Hide();
             new PilihMenu().Show();
+            
         }
 
         public void setLoginUsernameOrPasswordError()
@@ -78,21 +79,7 @@ namespace Sepii.View
             System.Windows.MessageBox.Show("Username dan password salah!");
         }
 
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialog == System.Windows.Forms.DialogResult.No)
-            {
-                e.Cancel = true;
-
-
-            }
-            else
-            {
-                System.Windows.Application.Current.Shutdown();
-            }
-
-        }
+        
 
 
     }

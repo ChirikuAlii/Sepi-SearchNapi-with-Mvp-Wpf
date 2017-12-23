@@ -88,15 +88,20 @@
     <Compile Include="Activity\PilihMenu.xaml.cs">
       <DependentUpon>PilihMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Daftar\DaftarInteractorImpl.cs" />
+    <Compile Include="Model\Daftar\IDaftarInteractor.cs" />
     <Compile Include="Model\LoginAdmin\AdminModel.cs" />
     <Compile Include="Model\LoginAdmin\ILoginAdminInteractor.cs" />
     <Compile Include="Model\LoginAdmin\LoginAdminInteractorImpl.cs" />
     <Compile Include="Model\LoginPengunjung\ILoginPengunjungInteractor.cs" />
     <Compile Include="Model\LoginPengunjung\LoginPengunungjungInteractorImpl.cs" />
     <Compile Include="Model\LoginPengunjung\NapiModel.cs" />
+    <Compile Include="Presenter\Daftar\DaftarPresenterImpl.cs" />
+    <Compile Include="Presenter\Daftar\IDaftarPresenter.cs" />
     <Compile Include="Presenter\LoginAdmin\ILoginAdminPresenter.cs" />
     <Compile Include="Presenter\LoginAdmin\LoginAdminPresenterImpl.cs" />
     <Compile Include="Presenter\LoginPengunjung\LoginPengunjungPresenterImpl.cs" />
+    <Compile Include="View\Daftar\IDaftarView.cs" />
     <Compile Include="View\LoginAdmin\ILoginAdminView.cs" />
     <Compile Include="View\LoginPengunjung\ILoginPengunjungView.cs" />
     <Page Include="MainWindow.xaml">

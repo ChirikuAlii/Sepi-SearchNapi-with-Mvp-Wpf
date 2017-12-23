@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -31,6 +33,7 @@ namespace Sepii.View
 
             this.Hide();
             new Daftar().Show();
+            
 
         }
 
@@ -38,12 +41,18 @@ namespace Sepii.View
         {
             this.Hide();
             new LoginPengunjung().Show();
+            
         }
 
         private void btnPegawai_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            new Pegawai().Show();  
+            new Pegawai().Show();
+            
         }
+
+      
+
     }
 }
+

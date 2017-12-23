@@ -30,7 +30,7 @@
 
         </Grid.Background>
 
-        <GroupBox Header="Data Diri" FontSize="20" Foreground="White" Grid.ColumnSpan="2" Grid.Row="1"
+        <GroupBox  x:Name="groupBoxDataDiriMember" Header="Data Diri" FontSize="20" Foreground="White" Grid.ColumnSpan="2" Grid.Row="1"
                    Margin="50,10,50,10">
 
             <Grid ShowGridLines="False">

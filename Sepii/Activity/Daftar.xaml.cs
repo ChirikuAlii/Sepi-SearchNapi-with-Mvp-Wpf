@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using Sepii.Model.LoginPengunjung;
+using Sepii.Presenter.Daftar;
 
 namespace Sepii.View
 {
@@ -21,91 +23,100 @@ namespace Sepii.View
     /// <summary>
     /// Interaction logic for Daftar.xaml
     /// </summary>
-    public partial class Daftar : Window
+    public partial class Daftar : Window , IDaftarView
     {
+        IDaftarPresenter presenter;
         MySqlConnection connection;
-        string gender = null;
-        string date = null;
+        String nomorKtp;
+        String nama;
+        String jenisKelamin;
+        String tanggalLahir;
+        String agama;
+        String kewarganegaraan;
+        String nomorTlp;
+        String email;
+        String alamat;
+        String kecamatan;
+        String rtRw;
         public Daftar()
         {
+            presenter = new DaftarPresenterImpl(this);
             InitializeComponent();
         }
 
 
         private void btnDaftar_Click(object sender, RoutedEventArgs e)
         {
-            ConnectingDB();
-            getGender();
-            getDate();
-            addToDatabase();
-            connection.Close();
+            nomorKtp = txtBoxNoKtp.Text;
+            nama = txtBoxNama.Text;
+            jenisKelamin = rbLakilaki.IsChecked.ToString();
+            tanggalLahir = datePickerLahir.Text;
+            agama = txtBoxAgama.Text;
+            kewarganegaraan = txtBoxKewarganegaraan.Text;
+            nomorTlp = txtBoxNoTelepon.Text;
+            email = txtBoxEmail.Text;
+            alamat = txtBoxAlamat.Text;
+            kecamatan = txtBoxKecamatan.Text;
+            rtRw = txtBoxRtRw.Text;
+         
+            presenter.perfromAddData(
+                nomorKtp,
+                nama,
+                jenisKelamin,
+                tanggalLahir,
+                agama,
+                kewarganegaraan,
+                nomorTlp,
+                email,
+                alamat,
+                kecamatan,
+                rtRw
+                );
+            
         }
 
 
         
+    
+     
+
+
         protected override void OnClosing(CancelEventArgs e)
         {
             DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialog == System.Windows.Forms.DialogResult.No)
             {
                 e.Cancel = true;
-                
-                
+
+
             }
             else
             {
                 System.Windows.Application.Current.Shutdown();
             }
-                
+
         }
-        public void addToDatabase()
+
+
+        public void setValidationsInsertData()
         {
-            try
-            {
-                connection.Open();
-                string Query = "INSERT INTO `member` (`noKTP`, `nama`, `jenis kelamin`, `kewarganegaraan`, `tempat tanggal lahir`, `agama`, `nomor telepon`, `email`, `alamat`, `kecamatan`, `RT/RW`) VALUES ('" + txtBoxNoKtp.Text + "', '" + txtBoxNama.Text + "', '" + gender + "', '" + txtBoxKewarganegaraan.Text + "', '" + date + "', '" + txtBoxAgama.Text + "', '" + txtBoxNoTelepon.Text + "', '" + txtBoxEmail.Text + "', '" + txtBoxAlamat.Text + "', '" + txtBoxKecamatan.Text + "', '" + txtBoxRtRw.Text + "')";
-                MySqlCommand createCommand = new MySqlCommand(Query, connection);
-                createCommand.ExecuteNonQuery();
-                System.Windows.MessageBox.Show("Saved");
-            }
-            catch (Exception e)
-            {
-                System.Windows.MessageBox.Show(e.ToString());
-            }
-          
-
+           
         }
 
-        public void getGender()
+        public void setInsertDataSuccess()
         {
-            if (rbLakilaki.IsChecked == true)
-            {
-                gender="Laki-laki";
-            }
-            else if (rbPerempuan.IsChecked == true)
-                gender= "Perempuan";
+            System.Windows.MessageBox.Show("Data Berhasil disimpan");
         }
 
-        public void getDate()
+        public void setInsertDataError()
         {
-            var dateTime = datePickerLahir.SelectedDate.Value.ToShortDateString();
-            date = datePickerLahir.SelectedDate.Value.ToShortDateString();
+            System.Windows.MessageBox.Show("Data Gagal disimpan");
         }
-        public void ConnectingDB()
+
+        public void setEmptyInsertData()
         {
-
-            string SERVER, DATABASE, UID, PASS;
-            SERVER = "localhost";
-            DATABASE = "sepi";
-            UID = "root";
-            PASS = "";
-
-
-            string connect = $"SERVER ={SERVER};DATABASE={DATABASE};UID={UID};PASSWORD={PASS}; ";
-            connection = new MySqlConnection(connect);
-
+            System.Windows.MessageBox.Show("Isi Data Terlebih Dahulu","Error",MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
-
     }
 
 

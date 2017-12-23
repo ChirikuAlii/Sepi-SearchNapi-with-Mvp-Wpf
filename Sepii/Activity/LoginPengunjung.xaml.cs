@@ -19,6 +19,8 @@ using System.Collections;
 using Sepii.Model;
 using Sepii.Presenter.LoginPengunjung;
 using Sepii.Model.LoginPengunjung;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Sepii.View
 {
@@ -79,18 +81,18 @@ namespace Sepii.View
         //ChangeView
         public void setAddDataSuccess()
         {
-            
-            MessageBox.Show("Data berhasil di kirim");
+
+            System.Windows.MessageBox.Show("Data berhasil di kirim");
         }
 
         public void setAddDataError()
         {
-            MessageBox.Show("Data gagal di kirim");
+            System.Windows.MessageBox.Show("Data gagal di kirim");
         }
 
         public void setErrorItemMember()
         {
-            MessageBox.Show("Data tidak di temukan");
+            System.Windows.MessageBox.Show("Data tidak di temukan");
             txtBoxCariIdMember.Clear();
             txtBoxNama.Clear();
             txtBoxNoKtp.Clear();
@@ -140,7 +142,7 @@ namespace Sepii.View
 
         public void setErrorItemNapi()
         {
-            MessageBox.Show("Data tidak di temukan!");
+            System.Windows.MessageBox.Show("Data tidak di temukan!");
             txtBoxNomorNapi.Clear();
             txtBoxNama.Clear();
             txtBoxJenisKelamin.Clear();
@@ -149,7 +151,23 @@ namespace Sepii.View
             txtBoxKewarganegaraanNapi.Clear();
 
         }
-        
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+
+
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+
+        }
+
     }
     
 
