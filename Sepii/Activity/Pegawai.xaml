@@ -22,7 +22,7 @@
             <ImageBrush ImageSource="C:\Users\Ali Rahmat\Documents\C#\FP Pemprog\Black.jpg"/>
 
         </Grid.Background>
-        <DataGrid FontSize="20" x:Name="dataGrid" HorizontalAlignment="Left" Height="512" Margin="48,43,0,0" VerticalAlignment="Top" Width="975" Grid.ColumnSpan="3"/>
+        <DataGrid FontSize="24" x:Name="dataGridAntrian" IsReadOnly="True"  Margin="48,43,49,10" Grid.ColumnSpan="3"/>
         <Button x:Name="btnLoadTable" Content="Load Table" HorizontalAlignment="Left" Margin="17,23,0,0" VerticalAlignment="Top" Width="108" Height="42" Grid.Column="1" Grid.Row="1" Click="btnLoadTable_Click"/>
 
 

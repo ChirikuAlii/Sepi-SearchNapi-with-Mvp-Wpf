@@ -73,7 +73,7 @@ namespace Sepii.Model.Daftar
                             MySqlCommand createCommand = new MySqlCommand(query, connection);
                             
 
-                            
+                            //Validasi Data di input atau tidak
                             DialogResult dialog = System.Windows.Forms.MessageBox.Show("Apakah Anda Yakin Data ini Valid?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                             if (dialog == System.Windows.Forms.DialogResult.Yes)
                             {

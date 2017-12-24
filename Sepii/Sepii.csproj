@@ -96,14 +96,19 @@
     <Compile Include="Model\LoginPengunjung\ILoginPengunjungInteractor.cs" />
     <Compile Include="Model\LoginPengunjung\LoginPengunungjungInteractorImpl.cs" />
     <Compile Include="Model\LoginPengunjung\NapiModel.cs" />
+    <Compile Include="Model\Pegawai\IPegawaiInteractor.cs" />
+    <Compile Include="Model\Pegawai\PegawaiInteractorImpl.cs" />
     <Compile Include="Presenter\Daftar\DaftarPresenterImpl.cs" />
     <Compile Include="Presenter\Daftar\IDaftarPresenter.cs" />
     <Compile Include="Presenter\LoginAdmin\ILoginAdminPresenter.cs" />
     <Compile Include="Presenter\LoginAdmin\LoginAdminPresenterImpl.cs" />
     <Compile Include="Presenter\LoginPengunjung\LoginPengunjungPresenterImpl.cs" />
+    <Compile Include="Presenter\Pegawai\IPegawaiPresenterImpl.cs" />
+    <Compile Include="Presenter\Pegawai\PegawaiPresenterImpl.cs" />
     <Compile Include="View\Daftar\IDaftarView.cs" />
     <Compile Include="View\LoginAdmin\ILoginAdminView.cs" />
     <Compile Include="View\LoginPengunjung\ILoginPengunjungView.cs" />
+    <Compile Include="View\Pegawai\IPegawaiView.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

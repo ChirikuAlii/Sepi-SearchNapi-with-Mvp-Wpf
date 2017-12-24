@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Sepii.Model;
+using Sepii.Presenter.Pegawai;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,14 +23,17 @@ namespace Sepii.View
     /// <summary>
     /// Interaction logic for Pegawai.xaml
     /// </summary>
-    public partial class Pegawai : Window
+    public partial class Pegawai : Window , IPegawaiView
     {
+        System.Windows.Controls.DataGrid data;
+        IPegawaiPresenter presenter;
         MySqlConnection connection;
         public Pegawai()
         {
-            LoadTable();
-            connection = ConnectDB.ConnectingDB();
+            presenter = new PegawaiPresenterImpl(this);
             InitializeComponent();
+            presenter.performLoadTable();
+            
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -53,25 +57,26 @@ namespace Sepii.View
 
         private void btnLoadTable_Click(object sender, RoutedEventArgs e)
         {
-            LoadTable();
+
+            presenter.performLoadTable();
+
+            //ganti
+            
         }
 
-        void LoadTable()
+
+     
+
+
+
+        public void setErrorLoadTable()
         {
-            connection.Open();
-            String query = "SELECT CONCAT(jenguk.ID) AS 'Antrian', CONCAT(member.nama) AS 'Nama Pengunjung' ,CONCAT(napi.nama) AS 'Nama Tahanan' ,  CONCAT(napi.noTahanan) AS 'Nomor Tahanan' ,jenguk.Date  " +
-                "FROM `jenguk` , `member` , `napi` " +
-                "WHERE member.noKTP = jenguk.NoKtp_member AND napi.noTahanan = jenguk.NoTahanan_napi  ORDER BY jenguk.ID";
+            System.Windows.MessageBox.Show("Periksa jaringan anda!");
+        }
 
-
-            MySqlCommand command = new MySqlCommand(query, connection);
-            command.ExecuteNonQuery();
-
-            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(command);
-            DataTable data = new DataTable();
-            sqlDataAdapter.Fill(data);
-            dataGrid.ItemsSource = data.DefaultView;
-            connection.Close();
+        public void setSucccesLoadTable(DataTable dataAntri)
+        {
+            dataGridAntrian.ItemsSource = dataAntri.DefaultView;
         }
     }
 }
