@@ -110,34 +110,34 @@ namespace Sepii.View
         }
         
 
-        public void setItemMemberr(List<MemberModel> dataModel)
+        public void setItemMemberr(MemberModel dataModel)
         {
             //binding to view through presenter
-            txtBoxNoKtp.Text = dataModel[0].getNomorKtp();
-            txtBoxNama.Text = dataModel[0].getNama();
-            txtBoxJenisKelamin.Text = dataModel[0].getJenisKelamin();
-            txtBoxTanggalLahir.Text = dataModel[0].getTanggalLahir();
-            txtBoxAgama.Text = dataModel[0].getAgama();
-            txtBoxKewarganegaraan.Text = dataModel[0].getKewarganegaraan();
-            txtBoxNoTlp.Text = dataModel[0].getNomorTlp();
-            txtBoxEmail.Text = dataModel[0].getEmail();
-            txtBoxAlamat.Text = dataModel[0].getAlamat();
-            txtBoxKecamatan.Text = dataModel[0].getKecamatan();
-            txtBoxRtRw.Text = dataModel[0].getRtRw();
+            txtBoxNoKtp.Text = dataModel.getNomorKtp();
+            txtBoxNama.Text = dataModel.getNama();
+            txtBoxJenisKelamin.Text = dataModel.getJenisKelamin();
+            txtBoxTanggalLahir.Text = dataModel.getTanggalLahir();
+            txtBoxAgama.Text = dataModel.getAgama();
+            txtBoxKewarganegaraan.Text = dataModel.getKewarganegaraan();
+            txtBoxNoTlp.Text = dataModel.getNomorTlp();
+            txtBoxEmail.Text = dataModel.getEmail();
+            txtBoxAlamat.Text = dataModel.getAlamat();
+            txtBoxKecamatan.Text = dataModel.getKecamatan();
+            txtBoxRtRw.Text = dataModel.getRtRw();
         
             
         }
 
-        public void setItemNapi(List<NapiModel> dataModel)
+        public void setItemNapi(NapiModel dataModel)
         {
 
             //binding to view through presenter
-            txtBoxNomorNapi.Text = dataModel[0].getNomorTahanan();
-            txtBoxNamaNapi.Text = dataModel[0].getNamaTahanan();
-            txtBoxJenisKelaminNapi.Text = dataModel[0].getJenisKelaminTahanan();
-            txtBoxTanggalLahirNapi.Text = dataModel[0].getTanggalLahirTahanan();
-            txtBoxAgamaNapi.Text = dataModel[0].getAgamaTahanan();
-            txtBoxKewarganegaraanNapi.Text = dataModel[0].getKewarganegaraanTahanan();
+            txtBoxNomorNapi.Text = dataModel.getNomorTahanan();
+            txtBoxNamaNapi.Text = dataModel.getNamaTahanan();
+            txtBoxJenisKelaminNapi.Text = dataModel.getJenisKelaminTahanan();
+            txtBoxTanggalLahirNapi.Text = dataModel.getTanggalLahirTahanan();
+            txtBoxAgamaNapi.Text = dataModel.getAgamaTahanan();
+            txtBoxKewarganegaraanNapi.Text = dataModel.getKewarganegaraanTahanan();
         }
 
         public void setErrorItemNapi()

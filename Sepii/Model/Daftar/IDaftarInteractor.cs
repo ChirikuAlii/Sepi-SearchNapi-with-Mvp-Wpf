@@ -9,7 +9,12 @@ namespace Sepii.Model.Daftar
 {
     interface IDaftarInteractor
     {
+        //make data model in presenter and logic in interactor(less code , less cleaner than another method)
         void Daftar(MemberModel memberModel, IOnDaftarFinishedListener listener);
+
+       
+            
+            
     }
     interface IOnDaftarFinishedListener
     {

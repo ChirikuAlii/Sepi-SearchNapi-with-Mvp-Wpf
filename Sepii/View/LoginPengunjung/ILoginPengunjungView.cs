@@ -12,8 +12,8 @@ namespace Sepii.View
     {
         void setAddDataSuccess();
         void setAddDataError();
-        void setItemMemberr( List<MemberModel> dataModel);
-        void setItemNapi(List<NapiModel> dataModel);
+        void setItemMemberr( MemberModel dataModel);
+        void setItemNapi(NapiModel dataModel);
         void setErrorItemMember();
         void setErrorItemNapi();
         

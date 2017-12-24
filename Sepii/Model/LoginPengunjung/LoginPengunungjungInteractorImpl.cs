@@ -12,7 +12,7 @@ namespace Sepii.Model.LoginPengunjung
        
         MySqlConnection connection;
         String query;
-        MemberModel memberkModel = new MemberModel();
+        MemberModel memberModel = new MemberModel();
         NapiModel napiModel = new NapiModel();
 
         public void LoginPengungjung(string nomorKtp, string nomorTahanan, IOnLoginPengunjungFinishedListener listener)
@@ -44,7 +44,7 @@ namespace Sepii.Model.LoginPengunjung
             connection.Close();
         }
 
-        public void SearchIdMember(string nomorKtp, IOnLoginPengunjungFinishedListener listener ,List<MemberModel> memberModelList)
+        public void SearchIdMember(string nomorKtp, IOnLoginPengunjungFinishedListener listener)
         {
            
             connection = ConnectDB.ConnectingDB();
@@ -69,47 +69,40 @@ namespace Sepii.Model.LoginPengunjung
                     if (reader.GetString(0).ToString() == nomorKtp)
                     {
                         
-                        memberkModel.setNomorKtp(reader.GetString(0).ToString());
+                        memberModel.setNomorKtp(reader.GetString(0).ToString());
                       
 
-                        memberkModel.setNama(reader.GetString(1).ToString());
+                        memberModel.setNama(reader.GetString(1).ToString());
 
 
-                        memberkModel.setJenisKelamin(reader.GetString(2).ToString());
+                        memberModel.setJenisKelamin(reader.GetString(2).ToString());
 
-                        memberkModel.setKewarganegaraan(reader.GetString(3).ToString());
+                        memberModel.setKewarganegaraan(reader.GetString(3).ToString());
 
-                        memberkModel.setTanggalLahir(reader.GetString(4).ToString());
+                        memberModel.setTanggalLahir(reader.GetString(4).ToString());
 
 
-                        memberkModel.setAgama(reader.GetString(5).ToString());
+                        memberModel.setAgama(reader.GetString(5).ToString());
                        
 
-                        memberkModel.setNomorTlp(reader.GetString(6).ToString());
+                        memberModel.setNomorTlp(reader.GetString(6).ToString());
                    
-                        memberkModel.setEmail(reader.GetString(7).ToString());
+                        memberModel.setEmail(reader.GetString(7).ToString());
                   
 
 
-                        memberkModel.setAlamat(reader.GetString(8).ToString());
+                        memberModel.setAlamat(reader.GetString(8).ToString());
                         
 
 
-                        memberkModel.setKecamatan(reader.GetString(9).ToString());
+                        memberModel.setKecamatan(reader.GetString(9).ToString());
                       
 
-                        memberkModel.setRtRw(reader.GetString(10).ToString());
-                        
-
+                        memberModel.setRtRw(reader.GetString(10).ToString());
+                      
+                        listener.onSuccessCariIdMember(memberModel);
 
                         error = false;
-                       
-
-                        memberModelList.Add(memberkModel);
-
-                        listener.onSuccessCariIdMember();
-
-                        memberModelList.RemoveAt(0);
 
                     }
 
@@ -123,16 +116,7 @@ namespace Sepii.Model.LoginPengunjung
                     listener.onErrorCariIdMember();
               
                 }
-
-
-
-
-
-
                 connection.Close();
-
-
-
             }
 
             catch (Exception e)
@@ -141,7 +125,7 @@ namespace Sepii.Model.LoginPengunjung
             }
         }
 
-        public void SearchIdNapi(string nomorTahanan, IOnLoginPengunjungFinishedListener listener, List<NapiModel> napiModelList)
+        public void SearchIdNapi(string nomorTahanan, IOnLoginPengunjungFinishedListener listener)
         {
             connection = ConnectDB.ConnectingDB();
 
@@ -178,12 +162,11 @@ namespace Sepii.Model.LoginPengunjung
 
                         napiModel.setAgamaTahanan(reader.GetString(5).ToString());
 
-                        napiModelList.Add(napiModel);
                         
-                        listener.onSuccessCariIdNapi();
+                        
+                        listener.onSuccessCariIdNapi(napiModel);
 
-                        //hapus karena hanya meggunakan satu object
-                        napiModelList.RemoveAt(0);
+                       
 
                         error = false;
                     }

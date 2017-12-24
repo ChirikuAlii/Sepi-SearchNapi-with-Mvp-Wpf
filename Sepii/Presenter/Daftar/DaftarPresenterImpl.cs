@@ -45,6 +45,7 @@ namespace Sepii.Presenter.Daftar
             dataModel.setKecamatan(kecamatan);
             dataModel.setRtRw(rtRw);
 
+
             daftarInteractor.Daftar(dataModel, this);
         }
 

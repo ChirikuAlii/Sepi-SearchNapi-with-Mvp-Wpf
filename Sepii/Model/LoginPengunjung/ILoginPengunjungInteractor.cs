@@ -11,17 +11,17 @@ namespace Sepii.Model.LoginPengunjung
     interface ILoginPengunjungInteractor 
     {
         void LoginPengungjung(String nomorKtp, String nomorTahanan, IOnLoginPengunjungFinishedListener listener);
-        void SearchIdMember(String nomorKtp, IOnLoginPengunjungFinishedListener listener ,List<MemberModel> memberModel);
-        void SearchIdNapi(String nomorTahanan, IOnLoginPengunjungFinishedListener listener, List<NapiModel> napiModel);
+        void SearchIdMember(String nomorKtp, IOnLoginPengunjungFinishedListener listener );
+        void SearchIdNapi(String nomorTahanan, IOnLoginPengunjungFinishedListener listener);
        
     }
 
     interface IOnLoginPengunjungFinishedListener
     {
       
-        void onSuccessCariIdMember();
+        void onSuccessCariIdMember(MemberModel memberModel);
         void onErrorCariIdMember();
-        void onSuccessCariIdNapi();
+        void onSuccessCariIdNapi(NapiModel napiModel);
         void onErrorCariIdNapi();
         void onSuccessKirim();
         void onErrorKirim();

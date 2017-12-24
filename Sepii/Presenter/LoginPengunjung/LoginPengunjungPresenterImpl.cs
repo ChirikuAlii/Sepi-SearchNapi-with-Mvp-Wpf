@@ -13,8 +13,7 @@ namespace Sepii.Presenter.LoginPengunjung
         
         ILoginPengunjungView loginPengunjungView;
         ILoginPengunjungInteractor loginPengunjungInteractor = new LoginPengunungjungInteractorImpl();
-        List<MemberModel> memberModelList = new List<MemberModel>();
-        List<NapiModel> napiModelList = new List<NapiModel>();
+       
 
         public LoginPengunjungPresenterImpl(ILoginPengunjungView view)
         {
@@ -29,12 +28,12 @@ namespace Sepii.Presenter.LoginPengunjung
 
         public void performSearchIdMember(string nomorKtpMember)
         {
-            loginPengunjungInteractor.SearchIdMember(nomorKtpMember,this , memberModelList);
+            loginPengunjungInteractor.SearchIdMember(nomorKtpMember,this);
         }
 
         public void performSearchIdNapi(string nomorTahanan)
         {
-            loginPengunjungInteractor.SearchIdNapi(nomorTahanan, this, napiModelList);
+            loginPengunjungInteractor.SearchIdNapi(nomorTahanan, this);
         }
 
         //override
@@ -57,18 +56,18 @@ namespace Sepii.Presenter.LoginPengunjung
 
 
      
-        public void onSuccessCariIdMember()
+        public void onSuccessCariIdMember(MemberModel memberModel)
         {
             
             //binding model ke interface View
-            loginPengunjungView.setItemMemberr(memberModelList);
+            loginPengunjungView.setItemMemberr(memberModel);
             
         }
 
-        public void onSuccessCariIdNapi()
+        public void onSuccessCariIdNapi(NapiModel napiModel)
         {
             //bindng model ke interface View
-            loginPengunjungView.setItemNapi(napiModelList);
+            loginPengunjungView.setItemNapi(napiModel);
         }
 
         public void onErrorCariIdNapi()
